@@ -1,12 +1,12 @@
 #9th Nov 2025
-#now we are trying with birdnet. Only the data are not in the right format. 
+#working with birdnet. Only the data are not in the right format. 
 
-setwd("C:\\Users\\seymourc\\OneDrive - sanbi.org.za\\Documents\\Files.for.R\\Ostrich AI vs PC\\birdnet vs. PC and CNN")
+setwd("path\\to your working\\directory")
 #compdat<- read.csv("pc & birdnet1.csv", header = T)
 compdat<- read.csv("pc.birdnet.csv", header = T)
 
 
-#We cannot just use a normal regression, because both PC and birdnet have some error (whereas a normal regression usually assumes that one of your variables DOES NOT have error in it).  Also, we have some observations from the SAME points – so these are not independent.  We can either use site as a random variable and do mixed models. We can split the data into wet and dry and ask if the methods are generally comparable, and do a test for both wet and dry season.  
+#We cannot just use a normal regression, because both PC and birdnet have some error (whereas a normal regression usually assumes that one of your variables DOES NOT have error in it).  Also, we have some observations from the SAME points â€“ so these are not independent.  We can either use site as a random variable and do mixed models. We can split the data into wet and dry and ask if the methods are generally comparable, and do a test for both wet and dry season.  
 #to deal with the fact that both the independent and dependent variables (i.e., PC and birdnet) have errors, we have to do a SMA = standardised major axis analysis or MA = major axis analysis. since we're testing for if  slope = 1 and intercept = 0, we should use SMA. 
 #so the package we need for that is library(smatr)
 head(compdat)
@@ -51,7 +51,7 @@ print(wetfit)
 #P-value : 2.8594e-07 
 
 
-#so although correlated, seems that slope is not equal to 1; Intercept –  0 falls within the CI, so not significantly different to 0. BUT the slope (which should be 1) is greater than 1
+#so although correlated, seems that slope is not equal to 1; Intercept â€“  0 falls within the CI, so not significantly different to 0. BUT the slope (which should be 1) is greater than 1
 
 #for just the species that birdnet can detect, filtered out in the PC data
 wetfit <- sma(brdnet.no ~ PC_rich_BN, data = wet, method = "SMA")       
