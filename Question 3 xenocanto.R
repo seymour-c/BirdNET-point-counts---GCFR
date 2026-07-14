@@ -1,7 +1,3 @@
-#just trying it, INCLUDING the uncertains as "0.5" - not sure this is defensible, but let's see')
-# Merge Table 2 (xeno-canto counts) with Table 3 (validation accuracy)
-# and run regression of xeno-canto count vs BirdNET accuracy
-
 # Merge Table 2 (xeno-canto counts) with Table 3 (validation accuracy)
 # and run regression of xeno-canto count vs BirdNET accuracy
 
@@ -89,5 +85,6 @@ summary(mod_SA_beta_half)
 mod_ratio_beta_half.nowsr <- betareg(accuracy_half_adj ~ ratio_SA, data = combined.nowsr)
 summary(mod_ratio_beta_half.nowsr)
 plot(mod_ratio_beta_half.nowsr, which = c(1,2,4,5))    #line 36 is quite an outlier (white starred robin)
+
 
 
